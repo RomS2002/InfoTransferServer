@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "adminpanel.server.address",
+  "type": "java.lang.String",
+  "description": "A description for 'adminpanel.server.address'"
+}]}
