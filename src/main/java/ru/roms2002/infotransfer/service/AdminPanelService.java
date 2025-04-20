@@ -10,7 +10,7 @@ import ru.roms2002.infotransfer.dto.CheckTokenDTO;
 @Service
 public class AdminPanelService {
 
-	@Value("${adminpanel.address}")
+	@Value("${adminpanel.url}")
 	private String adminpanelURI;
 
 	private final RestClient restClient;
@@ -20,7 +20,8 @@ public class AdminPanelService {
 	}
 
 	public Boolean checkToken(CheckTokenDTO checkTokenDTO) {
-		return restClient.post().uri(adminpanelURI + "/api/checktoken").contentType(MediaType.APPLICATION_JSON)
-				.body(checkTokenDTO).retrieve().body(Boolean.class);
+		return restClient.post().uri(adminpanelURI + "/api/checktoken")
+				.contentType(MediaType.APPLICATION_JSON).body(checkTokenDTO)
+				.retrieve().body(Boolean.class);
 	}
 }

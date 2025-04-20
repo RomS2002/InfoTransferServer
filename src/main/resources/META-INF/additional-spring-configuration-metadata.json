@@ -1,5 +1,12 @@
-{"properties": [{
-  "name": "adminpanel.server.address",
-  "type": "java.lang.String",
-  "description": "A description for 'adminpanel.server.address'"
-}]}
+{"properties": [
+  {
+    "name": "adminpanel.url",
+    "type": "java.lang.String",
+    "description": "A description for 'adminpanel.url'"
+  },
+  {
+    "name": "adminpanel.ip",
+    "type": "java.lang.String",
+    "description": "A description for 'adminpanel.ip'"
+  }
+]}
