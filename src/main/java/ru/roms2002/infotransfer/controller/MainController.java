@@ -1,5 +1,7 @@
 package ru.roms2002.infotransfer.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.roms2002.infotransfer.dto.CheckTokenDTO;
 import ru.roms2002.infotransfer.dto.TokenStatus;
 import ru.roms2002.infotransfer.dto.UserDetailsDTO;
+import ru.roms2002.infotransfer.dto.UserInListDTO;
 import ru.roms2002.infotransfer.service.AdminPanelService;
 import ru.roms2002.infotransfer.service.UserService;
 
@@ -42,5 +45,10 @@ public class MainController {
 	@GetMapping("/getUserDetails")
 	public UserDetailsDTO getUserDetails(@RequestParam Integer id) {
 		return adminPanelService.getUserDetailsById(id);
+	}
+
+	@GetMapping("/getUsersByLastName")
+	public List<UserInListDTO> getUsersByLastName(@RequestParam("last-name") String lastName) {
+		return adminPanelService.getUsersByLastName(lastName);
 	}
 }

@@ -1,5 +1,7 @@
 package ru.roms2002.infotransfer.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -7,6 +9,7 @@ import org.springframework.web.client.RestClient;
 
 import ru.roms2002.infotransfer.dto.CheckTokenDTO;
 import ru.roms2002.infotransfer.dto.UserDetailsDTO;
+import ru.roms2002.infotransfer.dto.UserInListDTO;
 
 @Service
 public class AdminPanelService {
@@ -34,5 +37,12 @@ public class AdminPanelService {
 	public UserDetailsDTO getUserDetailsById(Integer id) {
 		return restClient.get().uri(adminpanelURI + "/api/getUserDetails?id={id}", id).retrieve()
 				.body(UserDetailsDTO.class);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<UserInListDTO> getUsersByLastName(String lastName) {
+		return restClient.get()
+				.uri(adminpanelURI + "/api/getUsersByLastName?last-name={lastName}", lastName)
+				.retrieve().body(List.class);
 	}
 }
