@@ -14,13 +14,13 @@ import org.springframework.security.web.access.expression.WebExpressionAuthoriza
 @EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
 public class WebConfig {
 
-	@Value("${adminpanel.ip}")
+	@Value("${messenger.ip}")
 	private String LOCAL_NETWORK_CIDR;
 
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		return http.csrf((csrf) -> csrf.disable())
-				.authorizeHttpRequests(auth -> auth.requestMatchers("/mail/**")
+				.authorizeHttpRequests(auth -> auth.requestMatchers("/mail/**", "/notification/**")
 						.access(new WebExpressionAuthorizationManager(
 								"hasIpAddress('" + LOCAL_NETWORK_CIDR + "')"))
 						.anyRequest().permitAll())
