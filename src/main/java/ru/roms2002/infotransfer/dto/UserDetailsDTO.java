@@ -38,4 +38,8 @@ public class UserDetailsDTO {
 	private String academicDegree;
 
 	private Boolean isBlocked;
+
+	private String email;
+
+	private String faculty;
 }
