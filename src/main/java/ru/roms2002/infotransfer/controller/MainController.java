@@ -51,4 +51,9 @@ public class MainController {
 	public List<UserInListDTO> getUsersByLastName(@RequestParam("last-name") String lastName) {
 		return adminPanelService.getUsersByLastName(lastName);
 	}
+
+	@GetMapping("/get-departments")
+	public List<String> getAllDepartments() {
+		return adminPanelService.getAllDepartments();
+	}
 }

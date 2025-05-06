@@ -45,4 +45,10 @@ public class AdminPanelService {
 				.uri(adminpanelURI + "/api/getUsersByLastName?last-name={lastName}", lastName)
 				.retrieve().body(List.class);
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<String> getAllDepartments() {
+		return restClient.get().uri(adminpanelURI + "/api/get-departments").retrieve()
+				.body(List.class);
+	}
 }
