@@ -61,4 +61,11 @@ public class NotificationController {
 		restClient.post().uri(messengerUrl + "/notification/change-department")
 				.contentType(MediaType.APPLICATION_JSON).body(dto).retrieve().toBodilessEntity();
 	}
+
+	@PostMapping("/delete-group")
+	public void sendDeleteGroupNotification(@RequestBody String groupName) {
+		restClient.post().uri(messengerUrl + "/notification/delete-group")
+				.contentType(MediaType.APPLICATION_JSON).body(groupName).retrieve()
+				.toBodilessEntity();
+	}
 }
