@@ -52,7 +52,6 @@ public class NotificationController {
 
 	@PostMapping("/change-role")
 	public void sendChangeRoleNotification(@RequestBody ChangeRoleDTO dto) {
-		System.out.println(dto);
 		restClient.post().uri(messengerUrl + "/notification/change-role")
 				.contentType(MediaType.APPLICATION_JSON).body(dto).retrieve().toBodilessEntity();
 	}

@@ -51,4 +51,9 @@ public class AdminPanelService {
 		return restClient.get().uri(adminpanelURI + "/api/get-departments").retrieve()
 				.body(List.class);
 	}
+
+	public UserDetailsDTO getUserDetailsById(String token) {
+		return restClient.get().uri(adminpanelURI + "/api/getUserDetails?token={token}", token)
+				.retrieve().body(UserDetailsDTO.class);
+	}
 }

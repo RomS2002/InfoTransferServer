@@ -22,10 +22,6 @@ public class MailController {
 
 	@PostMapping("/send")
 	public boolean sendMessage(@RequestBody SendMessageDTO sendMessageDTO) {
-
-		System.out.println(
-				sendMessageDTO.getEmail() + " | " + sendMessageDTO.getToken());
-
 		EmailContext email = new EmailContext();
 		email.setTo(sendMessageDTO.getEmail());
 		email.setTemplateLocation("tokenEmail.html");

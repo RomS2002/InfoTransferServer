@@ -43,8 +43,13 @@ public class MainController {
 	}
 
 	@GetMapping("/getUserDetails")
-	public UserDetailsDTO getUserDetails(@RequestParam Integer id) {
-		return adminPanelService.getUserDetailsById(id);
+	public UserDetailsDTO getUserDetails(@RequestParam(required = false) Integer id,
+			@RequestParam(required = false) String token) {
+		if (id != null)
+			return adminPanelService.getUserDetailsById(id);
+		if (token != null)
+			return adminPanelService.getUserDetailsById(token);
+		return null;
 	}
 
 	@GetMapping("/getUsersByLastName")
